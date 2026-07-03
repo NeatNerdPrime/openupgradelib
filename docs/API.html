@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OpenUpgrade API &mdash; OpenUpgrade Library 0.1.dev1+g89ae67398 documentation</title>
+  <title>OpenUpgrade API &mdash; OpenUpgrade Library 0.1.dev1+g4f954f480 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d8a9d0e6"></script>
+      <script src="_static/documentation_options.js?v=6ab2406d"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -1168,7 +1168,7 @@ moved from one module to another.
 
 <dl class="py function">
 <dt class="sig sig-object py" id="openupgradelib.openupgrade.update_module_names">
-<span class="sig-prename descclassname"><span class="pre">openupgradelib.openupgrade.</span></span><span class="sig-name descname"><span class="pre">update_module_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openupgradelib.openupgrade.update_module_names" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">openupgradelib.openupgrade.</span></span><span class="sig-name descname"><span class="pre">update_module_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environment_namespec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openupgradelib.openupgrade.update_module_names" title="Link to this definition"></a></dt>
 <dd><p>Deal with changed module names, making all the needed changes on the
 related tables, like XML-IDs, translations, and so on.</p>
 <dl class="field-list simple">
@@ -1177,6 +1177,10 @@ related tables, like XML-IDs, translations, and so on.</p>
 <li><p><strong>namespec</strong> – list of tuples of (old name, new name)</p></li>
 <li><p><strong>merge_modules</strong> – Specify if the operation should be a merge instead
 of just a renaming.</p></li>
+<li><p><strong>environment_namespec</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, parse JSON from the appropriate
+environment variable (<code class="docutils literal notranslate"><span class="pre">OPENUPGRADE_MERGED_MODULES</span></code> for merges or
+<code class="docutils literal notranslate"><span class="pre">OPENUPGRADE_RENAMED_MODULES</span></code> for renames) and merge the resulting
+mapping into <code class="docutils literal notranslate"><span class="pre">namespec</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
