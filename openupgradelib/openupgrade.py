@@ -3049,14 +3049,18 @@ def delete_record_translations(cr, module, xml_ids, field_list=None):
                 )
         else:
             table = get_model2table(model)
-            # we use information_schema to assure the columns exist
+            # we use information_schema to assure the columns exist and are
+            # jsonb; legacy non-jsonb columns (e.g. a leftover varchar column
+            # of a no-longer-stored field) would crash the operators below
             cr.execute(
                 """
                 SELECT isc.column_name
                 FROM information_schema.columns isc
                 JOIN ir_model_fields imf ON (
                     imf.name = isc.column_name AND imf.model = %s)
-                WHERE isc.table_name = %s AND imf.translate"""
+                WHERE isc.table_name = %s
+                    AND isc.data_type = 'jsonb'
+                    AND imf.translate"""
                 + (
                     # translate is a boolean in <19, a select field afterwards
                     ""
